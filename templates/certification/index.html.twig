@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tests code for Symfony Certification!{% endblock %}
+
+{% block body %}
+
+    {% block nav %} 
+        {{ parent() }}
+    {% endblock %}
+
+    <div class="row col-12 col-sm-10 mx-auto mt-5 pt-5 px-1 px-sm-3">
+
+        <p class="h5 text-center">{{ 'head.info_visu_code'|trans }} <code><a href="{{ src |file_link(0) }}">{{ class }}</a></code></p>
+   
+        {% if form is defined %}
+            <div class="col-12 col-sm-8 mx-auto my-2 px-1 px-sm-4 py-2 py-sm-4 border border-success rounded-2" >
+                {{ form(form) }}
+            </div>
+        {% endif %}
+
+    </div>
+
+
+    {% if (input is defined  and output is defined) %}
+    <!-- Modal -->
+    <div class="col-12 col-sm-10 modal fade show d-block bg-dark " id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="false">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p  class="modal-title h4 " id="modalLabel">Test : {{ class }}</p>
+                    <button onclick="getElementById('modal').classList.remove('d-block');" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body opacity-100">
+                <div class="col-12 col-sm-10 mx-auto my-5 px-1 px-sm-4 py-2 py-sm-4 border border-info rounded-2" >
+                     <div>
+                        <p class="h5 fw-normal"> Input :</p>
+                        <p class="h5 fw-bold"> {{ input }}</p>
+                        {% if output is iterable %}
+                        <p class="mt-3 h5 fw-normal"> Output :</p>
+                        <ul class="ps-1 ps-sm-5">
+                            {% for test in output %}
+                                <li class="fw-bold"> {{ test }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% else  %}
+                            <p class="mt-3 h5 fw-normal"> Output :</p>
+                            <p class="h5 fw-bold text-success"> {{ output }}</p>
+                        {% endif  %}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="getElementById('modal').classList.remove('d-block');" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% endif  %}
+
+
+{% endblock %}

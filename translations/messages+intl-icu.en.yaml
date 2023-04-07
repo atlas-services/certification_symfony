@@ -1,0 +1,10 @@
+homepage: Home
+head:
+  preparation: 'Préparation to SF6 certification'
+  info_visu_code: 'You can see the code of the test :'
+form:
+  method: Method
+  header_field: Header Field
+  header_value: Value
+  input: Input
+  test: Test

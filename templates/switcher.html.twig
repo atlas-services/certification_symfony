@@ -1,0 +1,12 @@
+{%  if (app_locales|split('|')|length > 1 ) %}
+    <li class="nav-item dropdown px-3">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ app.request.attributes.get('_locale')|upper }}
+        </a>
+        <ul class="dropdown-menu">
+            {% for locale in app_locales|split('|') %}
+                <li><a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: locale}) }}">{{ locale|upper }}</a></li>
+            {% endfor %}
+        </ul>
+    </li>
+{%  endif  %}

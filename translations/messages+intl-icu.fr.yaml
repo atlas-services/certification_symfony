@@ -1,0 +1,10 @@
+homepage: Accueil
+head:
+  preparation: 'Préparation à la certification SF6'
+  info_visu_code: 'Vous pouvez visualiser le code du test :'
+form:
+  method: Méthode
+  header_field: Header Field
+  header_value: Valeur
+  input: Input
+  test: Tester
