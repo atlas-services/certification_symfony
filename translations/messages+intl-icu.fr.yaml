@@ -7,4 +7,6 @@ form:
   header_field: Header Field
   header_value: Valeur
   input: Input
+  twig_filter: Filtre Twig
+  arguments_value: Arguments (liste séparée par une virgule)
   test: Tester

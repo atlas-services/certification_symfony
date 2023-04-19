@@ -42,10 +42,14 @@
                                 <li class="fw-bold"> {{ test }}</li>
                             {% endfor %}
                             </ul>
-                            {% else  %}
+                            {% else %}
                             <p class="mt-3 h5 fw-normal"> Output :</p>
+                            {% if myfilter is defined %}
+                                    {{ output|apply_filter(myfilter) }}
+                            {% else %}
                             <p class="h5 fw-bold text-success"> {{ output }}</p>
-                        {% endif  %}
+                            {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

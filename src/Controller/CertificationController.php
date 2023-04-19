@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Certification\AnonymousFunctions\Tests as TestsAN;
 use App\Certification\Exceptions\Tests as TestsEx;
 use App\Certification\HeaderFields\Tests as TestsHF;
+use App\Certification\TemplatingTwig\Tests as TestsTF;
 use App\Form\RequestHeaderType;
 use App\Form\RequestInputType;
+use App\Form\RequestTwigFilterType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,6 +55,14 @@ class CertificationController extends AbstractController
 
     }
 
+    #[Route('/certification/twig/filter/', name: 'certification_twig_filter')]
+    public function indexTF(Request $request, TestsTF $tests): Response
+    {
+
+        $form_type = RequestTwigFilterType::class;
+        return $this->getResponse($request, $form_type, $tests);
+
+    }
 
 
     private function getResponse(Request $request,  $form_type, $tests): Response
