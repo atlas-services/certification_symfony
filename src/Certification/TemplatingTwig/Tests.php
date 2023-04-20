@@ -8,14 +8,13 @@ class Tests
 
         $filter = $data['myfilter'];
         $header_value = $data['header_value'];
-        $arguments = $data['arguments'];
+        $arguments = isset($data['arguments']) ? $data['arguments']: null;
         if(!is_null($arguments)){
             $filter = $filter.'('.$arguments.')';
         }
-
         
         $array = [
-            'input' => sprintf('Filter : "%s", value : %s" ' ,  $filter, $header_value),
+            'input' => sprintf('Twig Filter :  "%s|%s" ' ,  $header_value, $filter),
             'output' => $header_value,
             'myfilter' => $filter,
         ];

@@ -8,5 +8,5 @@ form:
   header_value: Valeur
   input: Input
   twig_filter: Filtre Twig
-  arguments_value: Arguments (liste séparée par une virgule)
+  arguments_value: "Arguments : 'argument1', 'argument2', '...'"
   test: Tester
